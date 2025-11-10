@@ -116,7 +116,6 @@ import { Component } from "@angular/core";
             <span> Hello there, </span>
             Welcome first 👋
           </h1>
-          <h2>Amadeus</h2>
         </div>
       </div>
     </div>
