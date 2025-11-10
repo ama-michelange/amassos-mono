@@ -3,7 +3,19 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "nx serve first"
+    "start": "nx serve first",
+    "build": "nx build",
+    "lint": "nx lint",
+    "test": "nx test",
+    "all:test": "nx run-many --target=test --all --parallel=3",
+    "all:test:coverage": "nx run-many --target=test --all --codeCoverage --parallel=3",
+    "all:ci:test:coverage": "nx run-many --target=test --all --codeCoverage --parallel=3 --runInBand",
+    "all:ci:affected:test:coverage": "nx run-many affected --target=test --all --codeCoverage --parallel=2 --runInBand",
+    "affected:test": "nx affected --target=test",
+    "affected:test:coverage": "nx affected --target=test --codeCoverage",
+    "all:lint": "nx run-many --target=lint --all",
+    "all:format:check": "nx format:check --all --verbose",
+    "all:format:write": "nx format:write --all --verbose"
   },
   "private": true,
   "dependencies": {
