@@ -7,6 +7,11 @@
 /.angular/
 .angular/
 
+# NX.dev specific
+/.nx/
+.nx/
+
+
 # Node modules and dependency files
 /node_modules/
 /package-lock.json
@@ -21,6 +26,24 @@
 
 # TypeScript cache
 *.tsbuildinfo
+
+# IDEs and editors
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# Visual Studio Code
+.vscode/*
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+.vscode/extensions.json
+.history/*
+
 
 # Logs
 npm-debug.log*
