@@ -4,3 +4,10 @@
 /.nx/cache
 /.nx/workspace-data
 .angular
+/.angular/
+/.yarn/
+
+# Node
+/node_modules
+npm-debug.log
+yarn-error.log

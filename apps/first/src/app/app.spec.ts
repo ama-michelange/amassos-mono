@@ -1,20 +1,20 @@
-import { TestBed } from '@angular/core/testing';
-import { App } from './app';
-import { Welcome } from './welcome';
+import { TestBed } from "@angular/core/testing";
+import { App } from "./app";
+import { Welcome } from "./welcome";
 
-describe('App', () => {
+describe("App", () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [App, Welcome],
     }).compileComponents();
   });
 
-  it('should render title', () => {
+  it("should render title", () => {
     const fixture = TestBed.createComponent(App);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain(
-      'Welcome first'
+    expect(compiled.querySelector("h1")?.textContent).toContain(
+      "Welcome first"
     );
   });
 });

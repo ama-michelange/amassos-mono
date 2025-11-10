@@ -1,5 +1,5 @@
-import { Component, ViewEncapsulation } from "@angular/core";
 import { CommonModule } from "@angular/common";
+import { Component } from "@angular/core";
 
 @Component({
   selector: "app-welcome",
@@ -121,6 +121,5 @@ import { CommonModule } from "@angular/common";
     </div>
   `,
   styles: [],
-  encapsulation: ViewEncapsulation.None,
 })
 export class Welcome {}
