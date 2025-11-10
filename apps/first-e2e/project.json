@@ -1,0 +1,9 @@
+{
+  "name": "first-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/first-e2e/src",
+  "implicitDependencies": ["first"],
+  "// targets": "to see all targets run: nx show project first-e2e --web",
+  "targets": {}
+}
