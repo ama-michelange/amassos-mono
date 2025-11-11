@@ -1,20 +1,23 @@
 import { TestBed } from "@angular/core/testing";
 import { App } from "./app";
-import { OldWelcome } from "./old-welcome.component";
+import { Welcome } from "./welcome.component";
 
 describe("App", () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [App, OldWelcome],
+      imports: [App, Welcome],
     }).compileComponents();
   });
 
-  it("should render title", () => {
+  test("Then should render title", () => {
     const fixture = TestBed.createComponent(App);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector("h1")?.textContent).toContain(
-      "Welcome first"
-    );
+    const imgElement = compiled.querySelector("#welcomeLogo");
+    expect(imgElement).toBeTruthy();
+    expect(imgElement instanceof HTMLImageElement).toBeTruthy();
+    expect(imgElement?.tagName).toEqual("IMG");
+    expect(imgElement?.getAttribute("src")).toContain("amassos-logo-2");
+    expect(imgElement?.getAttribute("src")).toContain(".svg");
   });
 });

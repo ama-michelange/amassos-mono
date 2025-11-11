@@ -1,6 +1,7 @@
 import { CommonModule } from "@angular/common";
 import {
   Component,
+  OnDestroy,
   signal,
   ViewEncapsulation,
   WritableSignal,
@@ -89,20 +90,30 @@ const ALL_IMAGES = [
     </style>
     <div class="main">
       <div class="tile-container">
-        <img [src]="$image()" class="image-svg" alt="amassos" />
+        <img
+          [src]="$image()"
+          class="image-svg"
+          alt="amassos"
+          id="welcomeLogo"
+        />
       </div>
     </div>
   `,
   styles: [],
   encapsulation: ViewEncapsulation.None,
 })
-export class Welcome {
-  $image: WritableSignal<string> = signal(ALL_IMAGES[0]);
+export class Welcome implements OnDestroy {
+  protected $image: WritableSignal<string> = signal(ALL_IMAGES[0]);
+  private readonly intervalKey: number | undefined;
+
   constructor() {
     this.$image.set(this.randomizeImage());
-    setInterval(() => {
+    this.intervalKey = setInterval(() => {
       this.$image.set(this.randomizeImage());
     }, 1000 * 17);
+  }
+  ngOnDestroy(): void {
+    clearInterval(this.intervalKey);
   }
   randomizeImage(): string {
     const randomIndex = Math.floor(Math.random() * ALL_IMAGES.length);
