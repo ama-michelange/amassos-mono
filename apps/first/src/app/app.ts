@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { RouterModule } from "@angular/router";
-import { Welcome } from "./welcome";
+import { Welcome } from "./welcome.component";
 
 @Component({
   imports: [Welcome, RouterModule],
