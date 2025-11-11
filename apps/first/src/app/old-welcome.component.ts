@@ -2,7 +2,7 @@ import { CommonModule } from "@angular/common";
 import { Component } from "@angular/core";
 
 @Component({
-  selector: "app-welcome",
+  selector: "app-old-welcome",
   imports: [CommonModule],
   template: `
     <!--
@@ -122,4 +122,4 @@ import { Component } from "@angular/core";
   `,
   styles: [],
 })
-export class Welcome {}
+export class OldWelcome {}
