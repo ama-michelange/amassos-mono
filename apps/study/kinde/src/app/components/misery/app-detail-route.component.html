@@ -1,0 +1,16 @@
+@if (paramMap$ | async; as params) { @if (params.keys.length > 0) { Param
+<ul>
+  @for (key of params.keys; track key) {
+  <li>Key: {{ key }}, value: {{ params.get(key) }}</li>
+  }
+</ul>
+} } @if (queryParamMap$ | async; as queries) { @if (queries.keys.length > 0) {
+Query
+<ul>
+  @for (key of queries.keys; track key) {
+  <li>Key: {{ key }}, value: {{ queries.get(key) }}</li>
+  }
+</ul>
+} } @if (fragment$ | async; as fragment) {
+<p>Fragment: {{ fragment }}</p>
+}

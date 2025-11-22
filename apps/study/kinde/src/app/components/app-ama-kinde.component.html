@@ -1,0 +1,15 @@
+<ng-container *ngIf="kinde.initialized$ | async; else elseTmpl">
+  <h1>KindeWrapper initialized :)</h1>
+</ng-container>
+<ng-template #elseTmpl>
+  <h1>KindeWrapper initializing ...</h1>
+</ng-template>
+
+<ng-container *ngIf="kinde.authenticated$ | async; else loggedOut">
+  <app-logged-in />
+</ng-container>
+<ng-template #loggedOut>
+  <app-logged-out />
+</ng-template>
+
+<nav><app-nav /></nav>

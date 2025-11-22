@@ -1,0 +1,57 @@
+<header *ngIf="kinde.authUser as user">
+  <nav>
+    <h1>Kinde Authentication <small>by amassos</small></h1>
+    <div>
+      <ng-container *ngIf="!!user.imageUrl; else elseTmpl">
+        <img
+          class="avatar"
+          [ngSrc]="user.imageUrl"
+          width="30"
+          height="30"
+          alt="user profile avatar"
+        />
+      </ng-container>
+      <ng-template #elseTmpl>
+        <div class="avatar">
+          {{ user?.firstName?.[0] }}
+          {{ user?.lastName?.[0] }}
+        </div>
+      </ng-template>
+      <!--      <div>{{ user | json }}</div>-->
+
+      <div>
+        <p>{{ user?.firstName }} {{ user?.lastName }}</p>
+        <button (click)="kinde.logout()">Sign out</button>
+        <button (click)="kinde.login()">Force Sign in</button>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <h2>Details</h2>
+  <div>
+    <h3>
+      Token
+      <button (click)="toggleToken()">
+        @if (showToken) { Hide } @else { Show }
+      </button>
+    </h3>
+    @if (showToken) {
+    <p>ID Token: {{ kinde.authUser?.idToken }}</p>
+    <p>Access Token: {{ kinde.authUser?.accessToken }}</p>
+    }
+  </div>
+  <div>
+    <button (click)="toggleUserOrganizations()">User Organizations</button>
+    <!--    <p>-->
+    <!--      @if (organization$| async; as orga) {-->
+    <!--      {{ orga | json }}-->
+    <!--      }-->
+    <!--    </p>-->
+  </div>
+</main>
+
+<footer>
+  <hr />
+</footer>
