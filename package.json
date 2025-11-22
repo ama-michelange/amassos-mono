@@ -7,6 +7,7 @@
     "build": "nx build",
     "build:dev": "nx build --configuration development",
     "start:first": "nx serve first",
+    "start:study-kinde": "nx serve study-kinde",
     "build:first": "nx build first",
     "build:dev:first": "nx build first --configuration development",
     "lint": "nx lint",

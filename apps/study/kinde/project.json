@@ -1,0 +1,91 @@
+{
+  "name": "study-kinde",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "app",
+  "sourceRoot": "apps/study/kinde/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:application",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/study/kinde",
+        "browser": "apps/study/kinde/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/study/kinde/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "apps/study/kinde/public"
+          }
+        ],
+        "styles": ["apps/study/kinde/src/styles.scss"]
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "4kb",
+              "maximumError": "8kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "continuous": true,
+      "executor": "@angular/build:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "study-kinde:build:production"
+        },
+        "development": {
+          "buildTarget": "study-kinde:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular/build:extract-i18n",
+      "options": {
+        "buildTarget": "study-kinde:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/study/kinde/jest.config.ts",
+        "tsConfig": "apps/study/kinde/tsconfig.spec.json"
+      }
+    },
+    "serve-static": {
+      "continuous": true,
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "study-kinde:build",
+        "port": 4200,
+        "staticFilePath": "dist/apps/study/kinde/browser",
+        "spa": true
+      }
+    }
+  }
+}
