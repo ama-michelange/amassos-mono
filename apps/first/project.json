@@ -7,7 +7,8 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@angular/build:application",
+      "executor": "@nx/angular:application",
+      "old-executor": "@angular/build:application",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/first",
@@ -19,9 +20,38 @@
           {
             "glob": "**/*",
             "input": "apps/first/public"
+          },
+          {
+            "glob": "**/*",
+            "input": "dist/apps/favicons/first"
           }
         ],
-        "styles": ["apps/first/src/styles.scss"]
+        "styles": ["apps/first/src/styles.scss"],
+        "plugins": [
+          "apps/first/src/plug/plugin1.js",
+          "apps/first/src/plug/plugin2.js",
+          {
+            "path": "@anolilab/unplugin-favicons/esbuild",
+            "options": {
+              "logo": "apps/first/public/img/amassos-logo-2_line-black_green.svg",
+              "outputPath": "dist/apps/favicons/first/favicons",
+              "inject": false,
+              "favicons": {
+                "path": "/",
+                "appName": "AmAssos Site",
+                "pixel_art": true,
+                "icons": {
+                  "android": true,
+                  "appleIcon": false,
+                  "appleStartup": false,
+                  "favicons": true,
+                  "windows": false,
+                  "yandex": false
+                }
+              }
+            }
+          }
+        ]
       },
       "configurations": {
         "production": {
@@ -37,12 +67,14 @@
               "maximumError": "8kb"
             }
           ],
-          "outputHashing": "all"
+          "outputHashing": "all",
+          "verbose": false
         },
         "development": {
           "optimization": false,
           "extractLicenses": false,
-          "sourceMap": true
+          "sourceMap": true,
+          "verbose": false
         }
       },
       "defaultConfiguration": "production"

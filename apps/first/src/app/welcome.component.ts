@@ -8,6 +8,7 @@ import {
 } from "@angular/core";
 
 const ALL_IMAGES = [
+  "./img/amassos-logo-2-clean_line-black_white.svg",
   "./img/amassos-logo-2_line-black.svg",
   "./img/amassos-logo-2_line-black_white.svg",
   "./img/amassos-logo-2_line-black_red.svg",
@@ -110,7 +111,7 @@ export class Welcome implements OnDestroy {
     this.$image.set(this.randomizeImage());
     this.intervalKey = setInterval(() => {
       this.$image.set(this.randomizeImage());
-    }, 1000 * 17);
+    }, 1000 * 13);
   }
   ngOnDestroy(): void {
     clearInterval(this.intervalKey);
