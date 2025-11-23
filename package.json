@@ -7,6 +7,7 @@
     "build": "nx build",
     "build:dev": "nx build --configuration development",
     "start:first": "nx serve first",
+    "start:study-kinde": "nx serve study-kinde",
     "build:first": "nx build first",
     "build:dev:first": "nx build first --configuration development",
     "lint": "nx lint",
@@ -30,6 +31,7 @@
     "@angular/platform-browser": "~20.3.0",
     "@angular/platform-browser-dynamic": "~20.3.0",
     "@angular/router": "~20.3.0",
+    "@kinde-oss/kinde-auth-pkce-js": "~3.1.0",
     "rxjs": "~7.8.0",
     "zone.js": "~0.15.0"
   },

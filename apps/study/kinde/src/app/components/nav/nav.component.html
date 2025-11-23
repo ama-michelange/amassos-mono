@@ -1,0 +1,52 @@
+<h1>Navigation</h1>
+<div>
+  <a routerLink="/" routerLinkActive="item-active">Home</a>
+  <a routerLink="/misery" routerLinkActive="item-active">Misery</a>
+  <a
+    routerLink="/misery"
+    [queryParams]="{ pOne: 'one', pTwo: 'two', pThree: 'three', pFour: 'four' }"
+    routerLinkActive="item-active"
+  >
+    Misery with query params
+  </a>
+  <a
+    routerLink="/misery"
+    [fragment]="'my alone Fragment'"
+    routerLinkActive="item-active"
+  >
+    Misery with fragment
+  </a>
+  <a
+    routerLink="/misery"
+    [fragment]="'my Fragment after query params'"
+    [queryParams]="{ pFoo: 'foo', pBar: 'bar' }"
+    routerLinkActive="item-active"
+  >
+    Misery with query params and fragment
+  </a>
+  <a routerLink="/misery/25" routerLinkActive="item-active">Misery Misery 25</a>
+  <a routerLink="/misery/ola/1" routerLinkActive="item-active">Ola 1</a>
+  <a
+    routerLink="/misery/ola/17"
+    [queryParams]="{ pOne: 'one', pTwo: 'two', pThree: 'three', pFour: 'four' }"
+    routerLinkActive="item-active"
+  >
+    Ola 17 with query params
+  </a>
+  <a
+    routerLink="/misery/ola/42"
+    [fragment]="'my alone Fragment'"
+    routerLinkActive="item-active"
+  >
+    Ola 42 with fragment
+  </a>
+  <a
+    routerLink="/misery/ola/123"
+    [fragment]="'my Fragment after query params'"
+    [queryParams]="{ pFoo: 'foo', pBar: 'bar' }"
+    routerLinkActive="item-active"
+  >
+    Ola 123 with query params and fragment
+  </a>
+</div>
+<hr />
